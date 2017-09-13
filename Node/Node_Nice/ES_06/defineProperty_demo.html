@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    测试用户名: <input type="text" id="userName" />
+    <div id="show"></div>
+  </div>
+</body>
+<script>
+  let userInfo = [];
+  Object.defineProperty(userInfo, 'userName', {
+    get() {
+      return document.getElementById('show').innerHTML;
+    },
+    set(name) {
+      document.querySelector('#show').innerHTML = name;
+    }
+  });
+  document.querySelector('#userName').onkeyup = function(e) {
+    // 改变数据触发 set 方法，从而改变了视图
+    userInfo.userName = this.value;
+  }
+</script>
+</html>

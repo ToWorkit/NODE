@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../stylesheets/bootstrap.css">
+  <script src="../javascripts/jquery.js"></script>
+</head>
+<body>
+  <div style="position:absolute;top:30%;left:40%;background:#ccc;padding:20px;">
+    <h1 style="text-align: center;">登录</h1>
+    用户名:<input type="text" id="username" class="form-inline"/><br/>
+    密&nbsp;码:<input type="password" id="passwd" class="form-inline"/><br/>
+    <button class="btn btn-primary pull-right" onclick="login()">登录</button>
+  </div>
+</body>
+<script>
+  login = () => {
+    let username = $('#username').val(),
+        passwd = $('#passwd').val();
+    $.ajax({
+      url: '/users/login',
+      type: 'post',
+      data: {username: username, password: passwd},
+      success(data) {
+        // location.href= 'main.html'
+      }
+    })    
+  }
+</script>
+</html>

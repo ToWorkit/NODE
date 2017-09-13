@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let container = new Set([1, 2, 2, 3, 4, 4]);
+    console.log(container); // {1, 2, 3, 4} 自动去重
+    container.add(5); // 添加元素
+    container.delete(1); // 删除元素
+    // 查找元素
+    console.log(container.has(6)); // false
+    console.log(container);
+    console.log(container.size); // 长度
+    // 不定参数写法
+    let arr = [...container];
+    console.log(arr); // 数组 [2, 3, 4, 5]
+    // 快速编写数组去重
+    let array = [2, 2, 3, 4, 6, 6, 6, 7]
+    console.log([...new Set(array)])
+    // 针对对象的去重方案
+    function unique (arr_01) {
+      let container = new Set();
+      // 遍历
+      arr_01.forEach((val) => {
+        // 将对象转换为字符串，存入set容器中，确保唯一性(去重了就)
+        container.add(JSON.stringify(val));
+      })
+      let newArr = [...container].map((item) => {
+        return JSON.parse(item); // 转换回去
+      })
+      return newArr;
+    }
+    let arr_02 = [{}, {}, {}];
+    console.log([...new Set(arr_02)]);
+    console.log(unique(arr_02));
+  </script>
+</body>
+</html>

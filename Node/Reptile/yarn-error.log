@@ -1,0 +1,31 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\hedy\bin;C:\APP\Git\mingw64\bin;C:\APP\Git\usr\local\bin;C:\APP\Git\usr\bin;C:\APP\Git\usr\bin;C:\APP\Git\mingw64\bin;C:\APP\Git\usr\bin;C:\Users\hedy\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\APP\Git\cmd;C:\Program Files (x86)\Yarn\bin;D:\nvm;C:\Program Files\nodejs;D:\AppServ\MySQL\bin;C:\Users\hedy\AppData\Local\Programs\Python\Python36\Scripts;C:\Users\hedy\AppData\Local\Programs\Python\Python36;C:\php-7.1.5-nts-Win32-VC14-x64;C:\Users\hedy\AppData\Local\Yarn\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Users\hedy\AppData\Roaming\npm;D:\AppServ\Apache24\bin;D:\AppServ\php5;C:\APP\Git\usr\bin\vendor_perl;C:\APP\Git\usr\bin\core_perl
+
+Yarn version: 
+  0.24.6
+
+Node version: 
+  6.11.2
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:78027:59)
+      at Object.<anonymous> (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:73818:38)
+      at next (native)
+      at step (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:91:30)
+      at C:\Program Files (x86)\Yarn\lib\yarn-cli.js:102:13

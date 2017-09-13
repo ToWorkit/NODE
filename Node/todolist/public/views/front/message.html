@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>message</title>
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+</head>
+<body>
+  <div class="container">
+    手机号: <input type="text" id="phone"><br><br>
+    留言: <textarea name="" id="content" cols="30" rows="10"></textarea>
+    <br>
+    <button id="sub">提交</button>
+  </div>
+</body>
+<script>
+  $('#sub').click(() => {
+    let phone = $('#phone').val(),
+        content = $('#content').val();
+    $.ajax({
+      url: '/users/addMessage',
+      type: 'post',
+      data: {phone, content},
+      success(data) {
+        console.log(data);
+      }
+    })    
+  })
+</script>
+</html>

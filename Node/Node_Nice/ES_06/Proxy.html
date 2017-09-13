@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //http://mp.weixin.qq.com/s?__biz=MzIzMTU4MzMzOQ==&mid=2247484730&idx=1&sn=13a827a420cbce3fb4b8ba7ab35ecbc3&chksm=e8a0be3edfd73728b5af30f1f8a671ee93db597d40683953c86d2a2c8de1ee2912b45a679da6&mpshare=1&scene=23&srcid=08247nTVP8JnZltf7LUSrS3X#rd
+    /*
+      拦截
+      target 目标对象
+      handler 处理对象
+     */
+    /**
+     * [createValidator description]
+     * @param  {[type]} target    [待测试的Person实例]
+     * @param  {[type]} validator [验证规则personValidators]
+     */
+    function createValidator (target, validator) {
+      // 拦截器，拦截赋值操作，触发set函数
+      return new Proxy(target, {
+        set(target, key, value) {
+          // 如果待测试的Person对象中含有这个属性，就启用验证规则
+          // 验证规则的方法： name(val) 和 age(val)，名称需要跟传入的属性key一致
+          if (target.hasOwnProperty(key)) {
+            // rules 拿到的是name方法的引用
+            let rules = validator[key];
+            // 相当于调用方法name('hello')
+            if (rules(value)) {
+              // 如果验证无误，target的name属性可以修改成功
+              return Reflect.set(target, key, value)
+            }
+          }
+        }
+      })
+    }
+  </script>
+</body>
+</html>

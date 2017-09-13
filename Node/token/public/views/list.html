@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>主页</title>
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+</head>
+<body>
+  
+</body>
+<script>
+  let token = sessionStorage.getItem('token');
+  $.ajax({
+    url: '/users/list',
+    headers: {
+      'x-access-token': token
+    },
+    success(data) {
+      console.log(data)
+    }
+  })
+</script>
+</html>

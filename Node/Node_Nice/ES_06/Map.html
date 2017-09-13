@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button id="btn_01">提交</button>
+    <button id="btn_02">关闭</button>
+  </div>
+</body>
+<script>
+  // Map 容器
+  let dom_01 = document.querySelector('#btn_01'),
+      dom_02 = document.querySelector('#btn_02');
+  let callback_01 = () => {
+    alert('提交');
+  }    
+  let callback_02 = () => {
+    alert('关闭');
+  }
+  // 常量定义后不可改
+  const m = new Map();
+  m.set(dom_01, callback_01); // 键 为 dom 元素
+  m.set(dom_02, callback_02); // 键 为 dom 元素
+  console.log(m);
+
+  // 利用二维数组，构建Map
+  const myMap = new Map([
+    ['name', 'LL'],
+    ['content', 'Hello World']
+  ]);
+  console.log(myMap);
+  console.log(myMap.size);
+  // 增加属性
+  myMap.set('age', 18)
+  console.log(myMap)
+  // 获取属性
+  console.log(myMap.get('name'));
+  // 删除属性
+  myMap.delete('content');
+  console.log(myMap);
+  // 判断是否含有该属性
+  console.log(myMap.has('content'));
+  // 获取所有的键
+  console.log(myMap.keys());
+  // 获取所有的值
+  console.log(myMap.values());
+</script>
+</html>

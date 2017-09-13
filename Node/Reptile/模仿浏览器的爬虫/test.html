@@ -1,0 +1,21 @@
+<!-- PhantomJS -->
+<!-- phantom 可以起到浏览器的作用，可以在本地起一个服务器，模拟浏览器打开一个网页，然后直接本地解析这个网页 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试网页</title>
+  <script src="./jquery.js"></script>
+</head>
+<body>
+  <div id="userid"></div>
+  <script>
+    $.ajax({
+      url: '/hello1',
+      success(data) {
+        document.getElementById('userid').innerText = data['userid'];
+      }
+    })
+  </script>
+</body>
+</html>

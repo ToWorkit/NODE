@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Animal {
+      // 构造函数
+      constructor() {
+        this.type = 'animal';
+      }
+      says(say) {
+        /*setTimeout(function(){
+          // 此时的this是window
+          console.log(this.type + ' says ' + say);
+        }, 1000)*/
+        setTimeout(() => {
+          // 此时的this是构造函数的实例
+          console.log(this.type + ' says ' + say);
+        }, 1000)
+      }
+    }
+    let animal = new Animal();
+    animal.says('Hello'); // animal says Hello
+
+    class Cat extends Animal {
+      constructor() {
+        super(); // 继承父类的属性和方法
+        this.type = 'cat';
+      }
+    }
+    let cat = new Cat();
+    cat.says('Hello')
+  </script>
+</body>
+</html>

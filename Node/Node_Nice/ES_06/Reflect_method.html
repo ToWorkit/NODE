@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   let obj = {
+      name: 'll',
+      age: 18
+    };
+  /*
+    // set方法
+    Reflect.set(obj, 'name', 'tom');
+    console.log(obj.name); // tom
+    // get方法
+    let age = Reflect.get(obj, 'age');
+    console.log(age);
+    // 带有接收者对象的set方法
+    let receiver = {
+      name: 'lily'
+    }
+    
+      发起者是obj, 将name属性改为bill，但这个动作的接收者是receiver
+      所以obj的name属性还是tom，但接收者receiver的name被改变了
+     
+    // 可以在对象A中操作对象B
+    Reflect.set(obj, 'name', 'bill', receiver);
+    console.log(obj.name); // tom
+    console.log(receiver.name); // bill
+    // 判断obj是否有name属性
+    // 旧的写法
+    console.log('name' in obj); // true*/
+    // 新的写法
+    console.log(Reflect.has(obj, 'name')); // true
+  </script>
+</body>
+</html>

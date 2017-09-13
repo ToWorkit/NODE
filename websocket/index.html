@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // 判断是否支持
+    window.WebSocket ? console.log('Yes') : console.log('No');
+
+    // websocket 连接
+    let url = 'ws://localhost:3000';
+    let ws = new WebSocket(url);
+
+    // 连接触发
+    ws.onopen = evt => {
+      console.log('已连接')
+      // 连接之后可以发送数据
+      ws.send('data')
+    }
+
+    // 关闭触发
+    ws.onclose = evt => {
+     console.log('断开连接')
+    }
+
+    // 接收server的信息
+    ws.onmessage = evt => {
+     console.log(evt.data)
+    }
+    
+    // error
+    ws.onError = evt => {
+      // 错误信息
+      console.log(evt.data)
+    }
+
+  </script>
+</body>
+</html>

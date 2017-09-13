@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      configurable：属性是否可配置。可配置的含义包括：是否可以删除属性（ delete ），是否可以修改属性的 writable 、 enumerable 属性。
+      enumerable：属性是否可遍历出来（可通过 for...in 遍历到）。
+      writable：属性是否可重写（是否可以对属性进行重新赋值？）
+      value：属性的默认值。
+      set：属性的重写方法。一旦属性被重新赋值，此方法被自动调用。
+      get ：属性的读取方法。一旦属性被访问读取，此方法被自动调用。
+
+     */
+    let obj = {};
+    // 给 obj 对象赋一属性 name，值为 jack
+    Object.defineProperty(obj, 'name', {
+      value: 'jack'
+    });
+    // 给 obj 对象赋一个属性 age，值为 100
+    Object.defineProperty(obj, 'age', {
+      value: 100,
+      configurable: true, // 可配置
+      enumerable: true, // 可遍历
+      writable: true // 可写
+    })
+    console.log(obj.age);
+    // 重写
+    obj.age = 18;
+    console.log(obj.age); // 可重写的
+    obj.name = 111;
+    console.log(obj.name); // 不可重写
+  </script>
+</body>
+</html>

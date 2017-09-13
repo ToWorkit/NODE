@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    测试Object: <input type="text" id="userName" />
+  </div>
+  <div>
+    测试Reflect：<input type="text" id="age" />
+  </div>
+  <div id="showName"></div>
+  <div id="showAge"></div>
+  <script>
+    // 利用 Reflect(反射) 改造双向绑定
+    let userInfo = {};
+    // Object的方式
+    Object.defineProperty(userInfo, 'userName', {
+      get() {
+        return document.querySelector('#showName').innerHTML;
+      },
+      set(name) {
+        document.querySelector('#showName').innerHTML = name;
+      }
+    });
+    // Reflect 是一面镜子，Object有的它就有
+    Reflect.defineProperty(userInfo, 'age', {
+      get() {
+        return document.querySelector('#showAge').innerHTML;
+      },
+      set(age) {
+        document.querySelector('#showAge').innerHTML = age;
+      }
+    })
+
+    // Object
+    document.getElementById('userName').onkeyup = function (e) {
+      userInfo.userName = this.value;
+    }
+    // Reflect
+    document.querySelector('#age').onkeyup = function (e) {
+      userInfo.age = this.value;
+    }
+  </script>
+</body>
+</html>
